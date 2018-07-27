@@ -1,4 +1,4 @@
-angular.module('platform').controller('analysisController', ['$scope','requestService','$location', function($scope,requestService,$location) {
+ngular.module('platform').controller('analysisController', ['$scope','requestService','$location', function($scope,requestService,$location) {
 	
 	//项目公司间切换
 	//功能视图切换
