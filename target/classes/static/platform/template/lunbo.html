@@ -1,0 +1,12 @@
+<div id="playimages" class="play">
+    <ul class="big_pic" id="big_pic">
+		<div id="btn_prev" class="prev"></div>
+		<div id="btn_next" class="next"></div>
+		<a id="mark_left" class="mark_left" href="javascript:;"></a>
+		<a id="mark_right" class="mark_right" href="javascript:;"></a>
+       <!--  <li ng-repeat="slide in slides" style="z-index:1;"><img ng-src="{{slide.image}}" /></li> -->
+        <li ng-repeat="slide in slide" style="z-index:1;">
+        <img ng-src="{{slide.image}}" width="800" height="500" onload=AutoResizeImage(800,500,this) />
+        </li>
+    </ul>
+</div>

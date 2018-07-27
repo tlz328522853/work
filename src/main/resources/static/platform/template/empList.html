@@ -1,0 +1,154 @@
+<div ng-controller="empSelectController" class="modal fade" style="position: absolute; z-index: 50000;" 
+	id="empListModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+	<div class="modal-dialog" style="width: 72%; z-index: 9999;margin-top:27px"
+		role="document">
+		<div class="modal-content">
+			<div class="modal-header panel-primary"
+				style="height: 50px; border-bottom: solid 2px #ABAEFF;">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close" ng-click="resetQueryPanel()">
+					<span aria-hidden="true" style="color: #000; font-size: 35px;">&times;</span>
+				</button>
+				<h4 class="modal-title"
+					style="color: #FFFFFF; text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);float:left; font-weight: bold;"
+					id="myModalLabel">人员选择</h4>
+				<p style="float:left;margin-left:10px">
+					<input type="text" ng-model="qryEmp.name" placeholder="姓名" />
+					<input type="text" ng-model="qryEmp.employeeNo" placeholder="工号" />
+					<ng-select-custom ng-if="jobTitleFlag" dic-id="dicId_jobTitle" init-option="----职务----" ng-model="qryEmp.jobTitle"/>			
+				</p>
+				
+				<button type="button" class="btn btn-primary" data-dismiss=""
+					ng-click="query()" style="margin-left:10px;float:left;margin-top: -5px;">查询</button>
+				<button type="button" class="btn btn-primary" data-dismiss="" style="margin-left:10px;float:left;margin-top: -5px;">
+					<span>{{ choseRowData.org.name }}{{ choseRowData.name }}</span>
+					<span ng-if="choseRowData == null">您所选择的人员</span>
+				</button>	
+				
+			</div>
+			<div class="modal-body">
+				<div class="indexright_cont panel" style="margin:0;">
+				<!-- HW-1040 去除机构树 sl_fix   empTreeShow 默认false 不使用机构树-->
+					 <div class="dialog_tree" ng-show=" empTreeShow">
+						<div class="indexright_cont_conlx">
+							<input type="checkbox" ng-true-value="true" ng-false-value="false" ng-click="checkChgEmp(branch)"  ng-model="includeSub" />
+							<span>包含下级机构人员</span>
+						</div>
+						<div class="indexright_cont_conlt"
+							style="height: 365px; overflow: auto;" ng-scrollbar>
+							<abn-tree tree-data="orgEmpData" tree-control="orgEmpTree"
+								on-select="orgSelected(branch)" expand-level="2"></abn-tree>
+						</div>
+					</div> 
+					<div  ng-if="! empTreeShow"  style="width: calc(100% );width: -webkit-calc(100% );float: left;">
+						<div style="height: 410px;">
+							<div class="borderbox">
+								<table lg-grid class="table table-striped"
+									model="dataProvider.getGridModel()">
+									<thead>
+										<tr>
+											<th></th>
+											<th>工号</th>
+											<th>姓名</th>
+											<th>性别</th>
+											<th>职务</th>
+											<th>手机</th>
+											<th>办公电话</th>
+											<th>部门</th>
+											<th>手机MAC</th>
+											<!-- <th>操作</th> -->
+										</tr>
+									</thead>
+									<tbody>
+										<tr lg-row-start>
+											<td>
+												<input type="radio" name="row3" ng-click="choseEmp(row)" ng-model="radioCtrl.employeeId" value="{{ row.data.employeeId }}"/>
+											</td>
+											<td>{{ row.data.employeeNo }}</td>
+											<td>{{ row.data.name }}</td>
+											<td>{{ row.data.gender }}</td>
+											<td>{{ row.data.jobTitle |
+												dicFilter:'7846845230464623'}}</td>
+											<td>{{ row.data.mobile }}</td>
+											<td>{{ row.data.telephone }}</td>
+											<td>{{ row.data.org.name }}</td>
+											<td>{{ row.data.org.mobileMac }}</td>
+											<!-- <td>
+												<button lg-toggle-expanded-row
+													class="btn btn-default btn-sm" title="查看">
+													<i class="glyphicon glyphicon-eye-open"></i>
+												</button>
+											</td> -->
+										</tr>
+										<tr lg-row-end lg-expanded-row>
+											<td colspan="9" ng-include=""></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<service-pager data-provider="dataProvider"></service-pager>
+						</div>
+					</div>
+					<div  ng-if=" empTreeShow" style="width: calc(100% - 200px);width: -webkit-calc(100% - 200px);float: left;">
+						<div style="height: 410px;">
+							<div class="borderbox">
+								<table lg-grid class="table table-striped"
+									model="dataProvider.getGridModel()">
+									<thead>
+										<tr>
+											<th></th>
+											<th>工号</th>
+											<th>姓名</th>
+											<th>性别</th>
+											<th>职务</th>
+											<th>手机</th>
+											<th>办公电话</th>
+											<th>部门</th>
+											<th>手机MAC</th>
+											<!-- <th>操作</th> -->
+										</tr>
+									</thead>
+									<tbody>
+										<tr lg-row-start>
+											<td>
+												<input type="radio" name="row3" ng-click="choseEmp(row)" ng-model="radioCtrl.employeeId" value="{{ row.data.employeeId }}"/>
+											</td>
+											<td>{{ row.data.employeeNo }}</td>
+											<td>{{ row.data.name }}</td>
+											<td>{{ row.data.gender }}</td>
+											<td>{{ row.data.jobTitle |
+												dicFilter:'7846845230464623'}}</td>
+											<td>{{ row.data.mobile }}</td>
+											<td>{{ row.data.telephone }}</td>
+											<td>{{ row.data.org.name }}</td>
+											<td>{{ row.data.org.mobileMac }}</td>
+											<!-- <td>
+												<button lg-toggle-expanded-row
+													class="btn btn-default btn-sm" title="查看">
+													<i class="glyphicon glyphicon-eye-open"></i>
+												</button>
+											</td> -->
+										</tr>
+										<tr lg-row-end lg-expanded-row>
+											<td colspan="9" ng-include=""></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<service-pager data-provider="dataProvider"></service-pager>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border-top: solid 2px #ABAEFF; padding: 15px;">
+				<button type="button" class="btn btn-danger" data-dismiss="modal" style="float:right;"  ng-click="resetQueryPanel()">取消</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" 
+					ng-click="selectEmp(choseRowData);choseEmp();" style="float:right;margin-right:10px">确认</button>
+				
+				<button type="button" class="btn btn-primary"  style="margin-right:10px;float:right;" data-dismiss=""
+					ng-click="qryEmp = {};">清空条件</button>	
+			</div>
+		</div>
+	</div>
+</div>

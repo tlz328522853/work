@@ -1,0 +1,24 @@
+<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog" style="width: 85%;margin:50px auto;z-index:9999;" role="document">
+    <div class="modal-content">
+      <div class="modal-header panel-primary" style="height: 50px;border-bottom: solid 2px #ABAEFF;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="imgSrc = [];closeCallback();">
+        	<span aria-hidden="true" style="color: #000;font-size: 35px;">&times;</span>
+        </button>
+        <h4 class="modal-title" 
+        	style="color: #FFFFFF;
+        	text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+        	font-weight: bold;" 
+        	id="myModalLabel">上传文件</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="container-fluid" style="display: block;min-height:400px;">
+	      	<file-upload file-filter="fileFilter(fileType)" img-src="imgSrc" files="files" file-type="false" 
+			frequency="frequency" insert-user="insertUser" 
+				upload-url="uploadUrl" close-callback="closeCallback()"
+				file-count="fileCount" file-size="fileSize" real-size="realSize" img-type="imgType"></file-upload>
+      	</div>
+      </div>
+    </div>
+  </div>
+</div>

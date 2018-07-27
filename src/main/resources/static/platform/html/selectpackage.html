@@ -1,0 +1,47 @@
+
+<div class="indexright_cont">
+	<div class="indexright_cont_top">
+		<div class="indexright_cont_gs" id="indexright_cont_gs">销售包选择</div>
+		<button class="q_logo75 q_qd" ng-disabled="!isChike" ng-click="savePackage()"><span>确定</span></button>
+	</div>
+	<!-- 功能按钮 -->
+	<div class="dialog_tree">
+		<div class="indexright_cont_conlt" style="height:400px;overflow:auto;" ng-scrollbar>
+			<abn-tree tree-data="packageData" tree-control="packageTree"
+				on-select="packageSelected(branch)" expand-level="2"></abn-tree>
+		</div>
+	</div>
+	<div class="indexright_cont_con" id="dialog_cont" >
+		<div>
+			<div class="borderbox" style="height:400px;overflow:auto">
+				<table lg-grid class="table table-striped" model="dataProvider.getGridModel()">
+					<thead>
+						<tr>
+							<th>模块编码</th>
+							<th>模块名称</th>
+							
+							
+							<th>显示顺序</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr lg-row-start>
+							<td>{{ row.data.moduleCode}}</td>
+							<td>{{ row.data.moduleName }}</td>
+							
+							<!-- <td>{{ row.data.status }}</td> -->
+							
+							<td>{{ row.data.creator }}</td>
+							<td>
+								
+							</td>
+						</tr>
+						<tr lg-row-end />
+					</tbody>
+				</table>
+			</div>
+			<lg-pager data-provider="dataProvider"></lg-pager>
+		</div>
+	</div>
+	</div>
+</div>

@@ -1,0 +1,195 @@
+<style>
+	.h3_logo1 .btn-warning {
+    color: #000;
+    background-color: #D3D3D3;
+    border-color: #D3D3D3;
+}
+	.h3_logo1 .btn-warning:hover {
+    color: #000;
+    background-color: #D3D3D3; 
+     border-color: #D3D3D3;
+}
+.h3_logo1 .open>.dropdown-toggle.btn-warning:focus, .open>.dropdown-toggle.btn-warning:hover {
+    color: #000;
+    background-color: #D3D3D3;
+    border-color: #D3D3D3;
+}
+.h3_logo1 .open>.dropdown-toggle.btn-warning {
+    color: #000;
+    background-color: #D3D3D3;
+    border-color: #D3D3D3;
+}
+.h3_logo1 .btn-group, .btn-group-vertical {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    right: 15px;
+}
+</style>
+<div class="" style="height:100%">
+	<div id="map_qb" style=""></div>
+
+	<div class="map_name">
+		<ng-dropdown-list ng-options="ngOptions" my-style="myStyle" item-list="itemList" to-home="1" to-stat="2" />
+	</div>
+	<div class="map_info left_map" id="">
+		<div class="left_top">
+			<span class="left_logo"></span>
+			<span class="right_logo"></span>
+		</div>
+		<div class="info_box">
+			<h3 class="h3_logo1"><!-- 项目公司 --><!-- &nbsp;
+				<div style="position: absolute;top: -10px;">
+					<custom-xiala li-val="liVal" li-arr="liArr" my-style="myStyle" li-label="liLabel" filter-show="false" li-change="statusChanged()"/>
+				</div> -->
+				<ng-dropdown-list ng-options="ngOrgOptions" my-style="myStyle" item-list="orgItemList" />
+			</h3>
+			<div class="home_map">
+				<ul>
+					<li>
+						<span>环卫项目:</span>
+						<p>{{ portalInfos.project }}个</p>
+					</li>
+					<li>
+						<span>环卫人员:</span>
+						<p>{{ portalInfos.employee }}人</p>
+					</li>
+					<li>
+						<span>环卫车辆:</span>
+						<p>{{ portalInfos.car }}辆</p>
+					</li>
+					<li>
+						<span>公厕管理:</span>
+						<p>{{ portalInfos.wc }}座</p>
+					</li>
+					<li>
+						<span>中转站管理:</span>
+						<p>{{ portalInfos.station }}座</p>
+					</li>
+					<li>
+						<span>垃圾箱保洁:</span>
+						<p>{{ portalInfos.dustbin }}个</p>
+					</li>
+					<!-- <li>
+						<span>物流仓库:</span>
+						<p>{{ portalInfos.station }}个</p>
+					</li> -->
+					<li>
+						<span>机械化作业率:</span>
+						<p>{{ portalInfos.mechOpRate*100 | number:2}}%</p>
+					</li>
+					<li>
+						<span>服务人口:</span>
+						<p>{{ portalInfos.population | number:2}}万人</p>
+					</li>
+					<li>
+						<span>垃圾清运:</span>
+						<p>{{ portalInfos.garbageCleanup | number:2}}吨/天</p>
+					</li>
+					<li>
+						<span>绿化带保洁面积:</span>
+						<p>{{ portalInfos.greenBeltArea | number:2}}万平方米</p>
+					</li>
+					<li>
+						<span>清扫保洁面积:</span>
+						<p>{{ portalInfos.sweepArea | number:2}}万平方米</p>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<div class="shrink" id="shrink"></div>
+		<div class="shrink2" id="shrink2"></div>
+		<div class="info_box" style="    height: calc(100% - 442px);overflow: hidden;">
+			<h3 class="h3_logo1">简介</h3>
+			<div class="home_map_a" style="overflow: scroll; height: calc(100% - 40px);">
+				<p class="home_brief">北京桑德新环卫投资有限公司（简称“桑德环卫”）是启迪桑德环境资源股份有限公司（简称“启迪桑德”，深圳主板上市，股票代码：000826）的全资子公司。2014年，基于企业战略发展要求——全力打造专业的环卫业务投资及运营平台，启迪桑德整合环卫业务资源成立桑德环卫公司。公司注册资本1.0亿元，主要从事道路清扫保洁，垃圾及粪便收集运输、河道清洁，环卫设施设备及星级公厕建设与运营管理、环卫技术研发与咨询、环卫产品销售以及与环卫业务相关的投资业务。</p>
+
+				<p class="home_brief">桑德环卫依托启迪桑德的雄厚实力和强大支持，可为客户提供环卫领域的投资、研发、咨询、设计、建设、运营、设备等“一站式”服务。目前，桑德环卫已陆续签约湖北宜昌、河北宁晋、安徽蚌埠、广东深圳等环卫项目，并已在全国运营超过70个项目，一线员工2万多人，环卫实施设备超过10万台（套），清扫保洁面积超过1亿平方米。</p>
+				
+				<p class="home_brief">桑德环卫全力打造的开放化环卫云平台，利用互联网、云计算等相关技术，通过智能设备连接环卫工作所涉及的人员、车辆、设施等，进行全过程的实时监管以及数据共享，为环卫管理提供成本分析、盈利预测、智能决策等功能。桑德环卫正全力落实以“互联、跨界、提质、开发”为特征的“互联网+环卫”战略，通过自身的投融资、线上线下智慧运营模式优势，提供具有地域特点的环卫系统解决方案，衍生新环卫业务模式，形成基础环卫运营、城市生活垃圾分类、再生资源回收、城乡物流配送、环卫设施广告等融为一体的互联网环卫产业群。到2025年，桑德环卫的目标是环卫云平台市场占有率将超过30%，运营总额突破1000亿元。桑德环卫将借势互联网浪潮，缔造中国环卫产业新业态。</p>
+				<!-- <p class="home_brief">{{com.description}}</p> -->
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var shrink=$(".shrink");
+	var shrink2=$(".shrink2");
+	var left_map=$(".left_map");
+	var body_height=$("body").height();
+	var shrink_height=shrink.outerHeight();
+	var shrink_top=parseInt((body_height-shrink_height)/2);
+	var left_map_height=left_map.outerHeight();
+	var showSidePanel = function(){
+
+		$('.left_map').animate({left: '0px'}, "slow",function() {
+			/*判断滚动条距顶部的位置，滚回到顶部*/
+//			if ($(document).scrollTop() > 0) {
+//				$("body").css({"background": "none"});
+//				$('html, body').animate({scrollTop: 0}, 'fast',function(){
+//					if(body_height<left_map_height){
+//						$("body").css({"overflow":"auto"});
+//						$('body').animate({"height":left_map_height}, 'fast');
+//						$("#allmap").animate({"height":left_map_height}, 'fast');
+//					}
+//				});
+//			}else{
+//				$("body").css({"background": "none"});
+//				if(body_height<left_map_height){
+//					$("body").css({"overflow":"auto"});
+//					$('body').animate({"height":left_map_height}, 'fast');
+//					$("#allmap").animate({"height":left_map_height}, 'fast');
+//				}
+//			}
+		});
+		$('.shrink').animate({left: '337px'}, "slow");
+		$('.shrink2').animate({left: '337px'}, "slow");
+
+		setTimeout(function(){
+			$("#shrink").show();
+			$("#shrink2").hide();
+		}, 500);
+	}
+	var hideSidePanel = function(){
+		$('.left_map').animate({left: '-380px'}, "slow",function(){
+			/*判断滚动条距顶部的位置，滚回到顶部*/
+//			if ($(document).scrollTop() > 0) {
+//				$("body").css({"background": "none"});
+//				$('html, body').animate({scrollTop: 0}, 'fast',function(){
+//					if(body_height<left_map_height){
+//						$("body").css({"overflow":"hidden"});
+//						$('body').animate({"height":"100%"}, 'fast');
+//						$("#allmap").animate({"height":"100%"}, 'fast');
+//					}
+//				});
+//			}else{
+//				$("body").css({"background": "none"});
+//				if(body_height<left_map_height){
+//					$("body").css({"overflow":"hidden"});
+//					$('body').animate({"height":"100%"}, 'fast');
+//					$("#allmap").animate({"height":"100%"}, 'fast');
+//				}
+//			}
+		});
+		$('.shrink').animate({left: '0px'}, "slow");
+		$('.shrink2').animate({left: '0px'}, "slow");
+
+
+		setTimeout(function(){
+			$("#shrink2").show();
+			$("#shrink").hide();
+		}, 500);
+	}
+	$("#shrink").on("click", function(e){
+		hideSidePanel();
+		e.preventDefault();
+	});
+	$("#shrink2").on("click", function(e){
+		showSidePanel();
+		e.preventDefault();
+	});
+
+	showSidePanel();
+	
+</script>

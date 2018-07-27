@@ -1,0 +1,127 @@
+<style>
+	/*打印*/	
+	@page{size:A4;}
+	@media print{ 
+		 .noprint { display: none }
+			body {
+			width:100%;
+			/* margin-left:10px; */
+		    font-family :"微软雅黑";
+		    scrollbar-base-color: #fff;   
+			scrollbar-base-color: #fff;   
+			scrollbar-3dlight-color: #fff;   
+			scrollbar-highlight-color: #fff;   
+			scrollbar-track-color: #fff;   
+			scrollbar-arrow-color: #fff;   
+			scrollbar-shadow-color: #fff;   
+			scrollbar-dark-shadow-color: #fff; 
+			scroll:none;
+		  }	
+		  .order_out{width:96%;height:50px;margin:30px auto;margin-bottom:0;}
+		 .printBorder{width:40%;height:40px;line-height:35px;margin:auto;border-bottom:1px solid #000;text-align: center;}
+		 .printRow{width:95%;height:30px;line-height:30px;margin:auto;}
+		 .printRow .col-md-3{float:left;width:33%;height:30px;line-height:30px;font-size:20px;}
+		 .printRow .rightR{float:right;margin-right:100px}
+		.printRow .rightR1{float:right;margin-right:100px}
+		 .printRow .col-md-4{width:33.3%;float:left;height:30px;line-height:30px;font-size:20px;}
+		.printRow .col-md-4.rightDate{width:20%;float:left}
+		 .borderbox{width:97%;border-bottom:none;min-height:100px;float:left;margin-left:11px;overflow-y: hidden;}
+		table.table{border-collapse: collapse;border: 1px solid #000;}
+		table.table th,table.table td{border-collapse: collapse;border: 1px solid #000;}
+		.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    		border-top: 1px solid #000;
+		}
+		.table>thead>tr>th {vertical-align: bottom;border-bottom:none;text-align: center;}
+		
+	}
+	#printDiv{width:100%:height:100%;}
+	#printDiv .order_out{width:100%;height:50px;}
+	#printDiv .printBorder{width:50%;height:50px;margin:auto;text-align: center;line-height:50px;}
+	#printDiv .printRow{width:100%;height:30px;line-height:30px;}
+	#printDiv .rightR{float:right}
+	#printDiv .rightR1{float:right}
+	#printDiv .borderbox{max-height:350px;overflow-y: scroll;margin-top:0px}
+</style>
+<!-- 打印模块 -->
+    <div  class="modal fade" id="addModal2" style="z-index: 99999"  tabindex="-1" role="dialog" aria-labelledby="printModalLabel"
+        aria-hidden="true" data-backdrop="static"> 
+      <div class="modal-dialog" role="document" style="z-index: 99999;width:80%;margin:0 auto">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close" ><span aria-hidden="true">&times;</span></button>
+                   <h4 style="width:300px;float:left;" class="modal-title" id="printModalLabel">订单打印预览</h4>
+               </div>
+               <div id="printDiv" class="modal-body">
+						<div class="order_out">
+							<h1 class="printBorder">出库单</h1>	
+						</div>
+						<div class="printRow">
+							<div class="col-md-4">仓库：<span>{{invOrder.warehouseName}}</span></div>
+							<div class="col-md-3 rightR">出库单号：<span>{{invOrder.orderCode}}</span></div>
+							<div class="col-md-4">
+							<!-- <span ng-if="invOrder.orderTypeName=='领用出库'">领用部门：{{invOrder.targetOrg}}</span> -->
+							<!--  <span >{{invOrder.targetOrg}}</span> -->
+							</div>
+						</div>
+						<div class="printRow">
+							
+							<div class="col-md-4 rightDate">日期：<span>{{invOrder.inOutDate|date:'yyyy-MM-dd'}}</span></div>
+							<div class="col-md-3 rightR1">出库类别：<span>{{invOrder.orderTypeName}}</span></div>
+							<div class="col-md-4">
+							<span ng-if="invOrder.orderTypeName=='领用出库'">部门：{{invOrder.targetOrg}}</span>
+							<span ng-if="invOrder.orderTypeName!='领用出库'">客户：{{invOrder.clientIdName}}</span>
+							</div>
+						</div>
+						<div class="borderbox">
+							<table lg-grid class="table table-striped" model="dataProvider4.getGridModel()">
+								<thead>
+									<tr>
+										<th>货品分类</th>
+										<th>存货名称</th>
+										<th>规格型号</th>
+										<th>单价(元)</th>
+										<th ng-if="invOrder.tag==1">数量</th>
+										<th ng-if="invOrder.tag!=1">冲抵数量</th>
+										<th>计量单位</th>
+										<th>金额(元)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr lg-row-start>
+										<td>{{ row.data.productName }}</td>
+										<td>{{ row.data.inventoryName }}</td>
+										<td>{{ row.data.type }}</td>
+										<td>
+											{{ row.data.outPrice }}
+										</td>
+										<td>
+											{{ row.data.outCount }}
+										</td>
+										<td>{{ row.data.unit }}</td>
+										<td>
+											{{ row.data.outAmount }}										
+										</td>
+									</tr>
+									<tr lg-row-end>
+									
+									</tr>
+									<tr>
+										<td colspan="6">合计:</td>
+										<td>{{invOrder.amount}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="printRow">
+							<div class="col-md-4">制单人：<span>{{invOrder.orderMakerName}}</span></div>
+							<div class="col-md-4">经办人：<span>{{invOrder.purchaser}}</span></div>
+							<div class="col-md-4">财务：<span>{{invOrder.financeName}}</span></div>
+						</div>
+				</div>
+               <div class="modal-footer">
+                   <button type="button" class="btn btn-default" data-dismiss="modal" >关闭</button>
+                   <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="printweb1()">打印</button>
+               </div>
+           </div>
+         </div>
+</div>

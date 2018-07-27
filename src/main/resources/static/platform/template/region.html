@@ -1,0 +1,20 @@
+<div class="input-group-btn">
+	<div class="btn btn-primary select" ng-click="selectPro()" ng-class="{'open':isOpenP}">
+		<span ng-bind="province"></span>
+		<ul style="width: 100%">
+			<li style="width: 100%" ng-repeat="p in provinces" ng-bind="p.regionName" ng-click="selectP(p)"></li>
+		</ul>
+	</div>
+	<div class="btn btn-primary select" ng-click="selectCity()" ng-class="{'open':isOpenC}">
+		<span ng-bind="city"></span>
+		<ul style="width: 100%">
+			<li style="width: 100%" ng-repeat="c in citys" ng-bind="c.regionName" ng-click="selectC(c)"></li>
+		</ul>
+	</div>
+	<div style="border-radius: 0 4px 4px 0;" class="btn btn-primary select" ng-click="selectArea()" ng-class="{'open':isOpenA}">
+		<span ng-bind="area"></span>
+		<ul style="width: 100%">
+			<li style="width: 100%" ng-repeat="a in areas" ng-bind="a.regionName" ng-click="selectA(a)"></li>
+		</ul>
+	</div>
+</div>

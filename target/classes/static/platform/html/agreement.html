@@ -1,0 +1,53 @@
+<style>
+	.agreeSpan{color:red}
+	ul.agreeUI li{line-height:25px;}
+</style>
+<div class="modal fade" ng-keyup="enter($event)"  id="qryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog" style="width: 800px;z-index:9999;margin-top:10px" role="document">
+    <div class="modal-content">
+      <div class="modal-header panel-primary" style="height: 50px;border-bottom: solid 2px #ABAEFF;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="resetQueryPanel()">
+        	<span aria-hidden="true" style="color: #000;font-size: 35px;">&times;</span>
+        </button>
+        <h4 class="modal-title" 
+        	style="color: #FFFFFF;
+        	text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+        	font-weight: bold;" 
+        	id="myModalLabel">注册协议</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="container-fluid" style="display: block;">
+      		<div class="row">
+      			北京智慧云行科技有限责任公司是桑德集团旗下全资子公司，主营业务是为环保新能源领域提供技术解决方案。荣获国家级、市级多项创新奖项。环卫云平台是在“互联网+环卫”的大背景下，基于物联网、互联网、大数据、GIS、多媒体等技术，将传统环卫业务与互联网大数据技术深度融合，吸纳企业运营管理先进经验并将其流程化、标准化、服务化的创新型环卫运营、信息管理平台。
+      		</div>
+      		<div class="row" style="margin-top:5px">
+      			如果您对本协议的任何条款及/或将来随时修改、补充的条款有异议，您可以选择不使用环卫云平台提供的服务；当您点选同意键或定制、使用、接受环卫云平台服务时即视为您已仔细阅读本条款，同意接受本服务条款的所有规范包括接受环卫云平台对服务条款随时所做的任何修改，并愿受其拘束。
+      		</div>
+	      	<ul class="row agreeUI" style="margin-top:5px">
+	      		<li>在您注册使用环卫云平台的服务之前，请认真阅读本服务条款内容：</li>
+				<li>一、本协议适用于北京智慧云行科技有限责任公司下属环卫云平台项目（以下简称“云平台”）为客户（或称“用户”）提供的各项服务。</li>
+				<li>二、尊重用户个人隐私是本平台的一项基本政策。本平台一定不会在未经合法用户授权时公开、编辑或透露其注册资料及保存在本平台中的非公开内容，除非有法律许可要求或本平台在诚信的基础上认为透露这些信息在以下四种情况是必要的：</li>
+				<li>1.遵守有关法律规定，遵从本平台合法服务程序。</li>
+				<li>2.保持维护本平台的商标所有权。</li>
+				<li>3.在紧急情况下竭力维护用户个人和社会大众的隐私安全。</li>
+				<li>4.符合其他相关的要求。</li>
+				<li>三、用户的帐号、密码和安全性。您一旦注册成功成为用户，您将得到一个密码和帐号。如果您不保管好自己的帐号和密码安全，将负全部责任。另外，每个用户都要对其帐户中的所有活动和事件负全责。</li>
+				<li>四、特别提醒您，使用互联网必须遵守国家有关的政策和法律，如刑法、国家安全法、保密法、计算机信息系统安全保护条例等，保护国家利益，保护国家安全，对于违法使用互联网络而引起的一切责任，由您负全部责任。</li>
+				<li>五、用户不应将其帐号、密码转让或出借予他人使用。如用户发现其帐号遭他人非法使用，应立即通知云平台。因用户的保管疏忽导致帐号、密码遭他人非法使用或黑客行为，云平台不承担任何责任。</li>
+				<li>六、非经法定原因或用户事先许可，云平台不会主动向任何第三方透露用户的密码、姓名、手机号码等非公开信息，除非： </li> 
+				<li>（1）事先获得用户的明确授权;</li>
+				<li>（2）只有透露用户的个人资料，才能提供用户所要求的产品和服务；</li>   
+				<li>（3）根据法律、法规等相关规定，或行政机构要求，向行政、司法机构或其他法律规定的第三方披露；</li>
+				<li>（4）按照相关政府主管部门的要求；</li>   
+				<li>（5）为维护云平台的合法权益。</li>
+				<li>七、用户应遵守以下法律及法规《中华人民共和国保守国家秘密法》、《中华人民共和国著作权法》、《中华人民共和国计算机信息系统安全保护条例》、《计算机软件保护条例》、《互联网电子公告服务管理规定》、《信息网络传播权保护条例》等有关计算机及互联网规定的法律、法规。</li>				
+				<li>八、本条款的订立、执行和解释及争议的解决均应适用中国法律。如双方就本条款内容或其执行发生任何争议，双方应尽力友好协商解决；协商不成时，任何一方均可<span class="agreeSpan">向本协议签订地人民法院</span>提起诉讼。<span class="agreeSpan">本协议签订地为北京市海淀区</span>。本协议最终解释权归本公司所有。</li>
+	      	</ul>
+      	</div>
+      </div>
+      <div class="modal-footer" style="border-top:solid 2px #ABAEFF;padding: 15px;">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="goBack()">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

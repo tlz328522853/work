@@ -1,0 +1,42 @@
+<style>
+        ::-ms-clear, ::-ms-reveal{display: none;}
+</style>
+<div class="loginbox boxlo">
+	<div class="loginleft">
+	</div>
+	<div class="loginright">
+		<h2>环卫云平台数据分析系统 </h2>
+		<form name="myForm" class="loginform" disableautocomplete autocomplete="off">
+			<div class="loginuse">
+				<span class="loginuse_span">账号</span>
+				<div class="use_div">
+					<span></span>
+					<input type="text" id="username" ng-model="user.name" required />
+				</div>
+			</div>
+			<div class="loginpwd">
+				<span class="loginpwd_span">密码</span>
+				<input type="password" id="userpwd" ng-model="user.pwd" required />
+			</div>
+			<div class="captcha">
+				<span class="">验证码</span>
+				<input type="text" ng-model="user.captcha" ng-keyup="enter($event)" maxlength="4" required />
+				<custom-captcha class="captcha_img" monitor-var="monitorRefresh" />
+			</div>
+			<!--点击换图片-->
+			<div class="login_get">
+				<div class="getuse">
+					<div id="checkUsr"  ng-model="isNameStore" ng-class="{true:'name',false:'namefalse'}[!rememberUsr]" ng-click="rememberuse()"></div>
+					<p>记住账号</p>
+				</div>
+				<div class="getpwd">
+					<div id="checkPwd"  ng-model="isPwdStore" ng-class="{true:'uesrpwd',false:'pwdfalse'}[!rememberPwd]" ng-click="rememberpwd()"></div>
+					<p>记住密码</p>
+				</div>
+			</div>
+			<button class="loginbtn" ng-click="login()" ng-disabled="myForm.$invalid">登录</button>
+		</form>
+			
+	</div>
+</div>
+

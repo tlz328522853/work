@@ -1,0 +1,8 @@
+<div class="input-group-btn">
+	<div class="btn btn-primary select" ng-click="selectPro()" ng-class="{'open':isOpen}">
+		<span ng-bind="area.areaName"></span>
+		<ul style="width: 100%;position: absolute;margin-top: 20px;">
+			<li style="width: 100%" ng-repeat="a in areas" ng-bind="a.areaName" ng-click="select(a)"></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,47 @@
+<div ng-controller="excelImportController" class="modal fade" id="importModal" tabindex="-1" role="dialog" 
+	aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog" style="width: 800px;z-index:9999;" role="document">
+    <div class="modal-content">
+      <div class="modal-header panel-primary" style="height: 50px;border-bottom: solid 2px #ABAEFF;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="clearFile()">
+        	<span aria-hidden="true" style="color: #000;font-size: 35px;">&times;</span>
+        </button>
+        <h4 class="modal-title" 
+        	style="color: #FFFFFF;
+        	text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+        	font-weight: bold;" 
+        	id="myModalLabel">导入</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="container-fluid" style="display: block;">
+	      	<div class="row" style="margin-top: 20px;">
+	            <div class="col-md-6" style="">
+	            	<div class="input-group">
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-primary" ng-click="downloadTemplet()">点击下载导入模板</button>
+						</div>
+							<!-- <input type="text" class="form-control" ng-model="empQry.name" placeholder=""> -->
+				    </div>
+	            </div>
+
+	      	</div>
+	      	<div class="row" style="margin-top: 20px;">
+	            <div class="col-md-12">
+		          	<div class="input-group excelupload" style="">
+	            		<div class="input-group-btn">
+							<button type="button" class="btn btn-primary" style="height:29px;padding:0px 12px">文件上传</button>
+						</div>
+							<input type="file" id="excelFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" multiple="multiple"/>
+		          	</div>
+	            </div>
+	      	</div>
+      	</div>
+      </div>
+      <div class="modal-footer" style="border-top:solid 2px #ABAEFF;padding: 15px;">
+        <button type="button" class="btn btn-primary" data-dismiss="" ng-click="clearFile()">清空文件</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="importFile()">导入</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="clearFile()">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div ng-if="qryFlag" ng-include="'platform/html/agreement.html'"></div>
+<div class="register">
+	<form name="registerForm" ng-controller="registerController" class="registerform" autocomplete="off" novalidate>
+		<p class="form_top">账户注册</p>
+		<div class="has-feedback">
+			<input class="form-control" placeholder="公司名称" name="name" tenant-unique="name" type="text" required ng-model="tenant.name" ng-maxlength="50" />
+			<span class="glyphicon glyphicon-ok " ng-show="registerForm.name.$dirty && registerForm.name.$valid"></span>
+			<span class="glyphicon glyphicon-remove " ng-show="registerForm.name.$error&& !registerForm.name.$valid && !registerForm.name.$pristine"></span>
+			<span class="error" style="width:50px;" ng-show="registerForm.name.$error.unique">已注册</span>
+		</div>
+		<div class="has-feedback">
+			<input class="form-control" placeholder="公司电话 010-5638732" name="telephone" type="text" required ng-model="tenant.telephone" ng-pattern="/^\d{3,4}-\d{7,8}$/" />
+			<span class="glyphicon glyphicon-ok " ng-show="registerForm.telephone.$dirty && registerForm.telephone.$valid"></span>
+			<span class="glyphicon glyphicon-remove " ng-show="registerForm.telephone.$error&& !registerForm.telephone.$valid && !registerForm.telephone.$pristine"></span>
+		</div>
+		<div class="has-feedback">
+			<input class="form-control" placeholder="公司地址" name="address" type="text" required ng-model="tenant.address" ng-maxlength="120" />
+			<span class="glyphicon glyphicon-ok " ng-show="registerForm.address.$dirty && registerForm.address.$valid"></span>
+			<span class="glyphicon glyphicon-remove " ng-show="registerForm.address.$error&& !registerForm.address.$valid && !registerForm.address.$pristine"></span>
+		</div>
+		<div class="has-feedback">
+			<input class="form-control" placeholder="公司简介"  name="description" type="text" required ng-model="tenant.description" ng-maxlength="120" />
+			<span class="glyphicon glyphicon-ok " ng-show="registerForm.description.$dirty && registerForm.description.$valid"></span>
+			<span class="glyphicon glyphicon-remove " ng-show="registerForm.description.$error&& !registerForm.description.$valid && !registerForm.description.$pristine"></span>
+		</div>
+		<div class="has-feedback">
+			<input class="form-control" placeholder="功能包选择"  name="description" type="text" required ng-model="saleName" ng-maxlength="120" disabled />
+			<p ng-click="showEmpower()" class="register_check"></p>
+		</div>
+		<div class="has-feedback">
+			<input class="form-control" placeholder="账户名"  
+				url="/security/hasName"
+				name="userName" ensure-unique="userName" type="text" required ng-model="user.name" ng-pattern="/^[a-zA-Z0-9]{5,10}$/" />
+			<span class="glyphicon glyphicon-ok " ng-show="registerForm.userName.$dirty && registerForm.userName.$valid"></span>
+			<span class="glyphicon glyphicon-remove " ng-show="registerForm.userName.$error&& !registerForm.userName.$valid && !registerForm.userName.$pristine"></span>
+			<span class="error" style="width:50px;" ng-show="registerForm.userName.$error.unique">已注册</span>
+			<span class="error" ng-show="registerForm.userName.$error.required"></span>
+		</div>
+		<div class="has-feedback">
+			<input id="userPassword" placeholder="密码" class="form-control" name="password" type="password" required ng-pattern="/^\w{6,10}$/" ng-model="user.password" />
+			<span class="glyphicon glyphicon-ok " ng-show="registerForm.password.$dirty && registerForm.password.$valid"></span>
+			<span class="glyphicon glyphicon-remove " ng-show="registerForm.password.$error&& !registerForm.password.$valid && !registerForm.password.$pristine"></span>
+			<span class="error" ng-show="registerForm.password.$error.required"></span>
+		</div>
+
+		<div class="has-feedback" ng-class="{'has-success':registerForm.confirmpwd2.$valid,'has-error':registerForm.pwd2.$invalid }">
+			<input class="form-control" placeholder="再次确认密码" id="pwd2" name="pwd2" type="password" required ng-pattern="/^\w{6,10}$/" ng-model="pwd2" pw-check="userPassword" />
+			<span class="glyphicon glyphicon-ok " ng-show="registerForm.pwd2.$dirty && registerForm.pwd2.$valid"></span>
+			<span class="glyphicon glyphicon-remove " ng-show="registerForm.pwd2.$error&& !registerForm.pwd2.$valid && !registerForm.pwd2.$pristine"></span>
+		</div>
+		<div class="has-feedback">
+			<input class="form-control"  placeholder="申请人" name="applicant" type="text" required ng-model="tenant.applicant" ng-maxlength="10" />
+			<span class="glyphicon glyphicon-ok " ng-show="registerForm.applicant.$dirty && registerForm.applicant.$valid"></span>
+			<span class="glyphicon glyphicon-remove " ng-show="registerForm.applicant.$error&& !registerForm.applicant.$valid && !registerForm.applicant.$pristine"></span>
+		</div>
+		<div class="has-feedback">
+			<input class="form-control" placeholder="申请人手机" name="applicantMobile" type="text" ng-model="tenant.applicantMobile" required ng-pattern="/^1[3|4|5|7|8][0-9]{9}/" />
+			<span class="glyphicon glyphicon-ok " ng-show="registerForm.applicantMobile.$dirty && registerForm.applicantMobile.$valid"></span>
+			<span class="glyphicon glyphicon-remove " ng-show="registerForm.applicantMobile.$error&& !registerForm.applicantMobile.$valid && !registerForm.applicantMobile.$pristine"></span>
+		</div>
+		<div class="has-feedback">
+			<input class="form-control" placeholder="申请人邮件 asf@qq.com" name="email" type="email" ng-model="user.email" required ng-pattern="/^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/" />
+			<span class="glyphicon glyphicon-ok " ng-show="registerForm.email.$dirty && registerForm.email.$valid"></span>
+			<span class="glyphicon glyphicon-remove " ng-show="registerForm.email.$error&& !registerForm.email.$valid && !registerForm.email.$pristine"></span>
+		</div>
+		<div class="has-feedback">
+			<label>
+				<input type="checkbox" name="row" ng-click="_checked=!_checked;"
+					ng-checked="_checked" class="form_check"/>
+			</label>
+			<p><span>我已经阅读并接受</span><a href="javascript:void(0)" ng-click="agreement()" data-toggle="modal" data-target="#qryModal" style="text-decoration:none">账户协议</a></p>
+		</div>
+		<div class="form_btn">
+			<span ng-click="reset()" class="register_qx">取消</span>
+			<button  ng-click="submit(registerForm)"  class="register_qd" ng-disabled="registerForm.$invalid || !_checked">开始免费试用</button>
+		</div>
+	</form>
+	
+	<!-- 协议显示 -->
+</div>

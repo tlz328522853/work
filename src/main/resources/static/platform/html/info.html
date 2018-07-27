@@ -1,0 +1,107 @@
+<div class="indexright_cont_top">
+		<div class="indexright_cont_gs" id="indexright_cont_gs">个人信息</div>
+</div>
+<div class="info_con">
+	<div class="information">
+	<!-- start create form -->
+		<div class="modal fade" data-backdrop="false" data-keyboard="false" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" style="width: 500px;z-index:9999;" role="document">
+		    <div class="modal-content" 
+		    	style="border:0px;
+		    	background: -webkit-linear-gradient(45deg, rgba(51, 122, 183,0.9), rgba(51, 122, 183,0.8) 35%,rgba(218, 222, 238, 0.9));
+		    	background: -o-linear-gradient(45deg, rgba(51, 122, 183,0.9), rgba(51, 122, 183,0.8) 35%,rgba(218, 222, 238, 0.9));
+		    	background: -ms-linear-gradient(45deg, rgba(51, 122, 183,0.9), rgba(51, 122, 183,0.8) 35%,rgba(218, 222, 238, 0.9));
+		    	background: -moz-linear-gradient(45deg, rgba(51, 122, 183,0.9), rgba(51, 122, 183,0.8) 35%,rgba(218, 222, 238, 0.9));
+		    	background: linear-gradient(45deg, rgba(51, 122, 183,0.9), rgba(51, 122, 183,0.8) 35%,rgba(218, 222, 238, 0.9));" >
+		      <div class="modal-header panel-primary" style="height: 50px;border-bottom: solid 2px #ABAEFF;">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="resetQueryPanel()">
+		        	<span aria-hidden="true" style="color: #000;font-size: 35px;">&times;</span>
+		        </button>
+		        <h4 class="modal-title" 
+		        	style="color: #FFFFFF;
+		        	text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+		        	font-weight: bold;" 
+		        	id="myModalLabel">密码修改</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<div class="container-fluid" style="display: block;">
+			      	<div class="row container-fluid" style="margin-top: 20px;">
+			            <div class="col-md-10" style="z-index:9999;">
+			            	<div class="input-group">
+								<div class="input-group-btn">
+									<button type="button" class="btn btn-primary">原密码</button>
+								</div>
+									<input type="password" class="form-control" ng-model="password" placeholder="">
+								
+						    </div>
+			            </div>
+			            <div class="col-md-10" style="z-index:9999;margin-top: 10px;">
+				          	<div class="input-group" >
+			            		<div class="input-group-btn">
+									<button type="button" class="btn btn-primary">新密码</button>
+								</div>
+									<input type="password" class="form-control"  ng-model="newPassword" placeholder="">
+								
+				          	</div>
+			            </div>
+			             <div class="col-md-10" style="z-index:9999;margin-top: 10px;">
+			            	
+			            	<div class="input-group">
+			            		<div class="input-group-btn">
+									<button type="button" class="btn btn-primary">再次输入新密码</button>
+								</div>
+								<input type="password" class="form-control" ng-model="beginPassword" value="">
+				          	</div>
+			            </div>
+			      	</div>
+			      	
+			      </div>
+		      </div>
+		      <div class="modal-footer" style="border-top:solid 2px #ABAEFF;padding: 15px;">
+		        <button type="button" class="btn btn-primary"  ng-click="updatePassword()">修改</button>
+		        <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="resetPanel()">取消</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	<div class="information_con">
+		<p class="information_p">个人信息</p>
+		<ul>
+			<li>
+				<span>当前用户:</span>
+				<p>{{ userName }}<a href="javascript:void(0)" data-toggle="modal" data-target="#myModal1" style="display:inline;margin-left: 20px;">密码修改</a></p>
+				
+			</li>
+			<li>
+				<span>所属机构:</span>
+				<p>{{ orgName }}</p>
+			</li>
+			<!-- <li>
+				<span>电话:</span>
+				<p>18901018899</p>
+			</li>
+			<li>
+				<span>邮箱:</span>
+				<p>admin@sound.com</p>
+			</li>
+			<li>
+				<span>创建时间:</span>
+				<p>2016-1-19</p>
+			</li>
+			<li> -->
+			<!-- <p >
+				
+				<button class="q_logo75 q_search"   data-toggle="modal" data-target="#myModal1">
+					密码修改
+				</button>
+				</p> -->
+			
+			
+			</li>
+		</ul>
+	</div>
+	
+	<p class="information_tel">如有更改请拨打云平台热线400-900-9999,真诚为你服务！</p>
+</div>
+</div>
+

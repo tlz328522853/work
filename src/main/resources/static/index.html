@@ -1,0 +1,145 @@
+<!doctype html>
+<!-- Our uiRouterSample module defined here -->
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <link href="http://api.map.baidu.com/library/TrafficControl/1.4/src/TrafficControl_min.css" rel="stylesheet" type="text/css" />
+  <script src="http://api.map.baidu.com/api?v=2.0&ak=jIwkULSx4biGbOxKkB8twKG3"></script>
+  <script type="text/javascript" src="http://api.map.baidu.com/library/TrafficControl/1.4/src/TrafficControl_min.js"></script>
+  <link rel="stylesheet" type="text/css" href="platform/css/login.css" />
+  <link rel="stylesheet" type="text/css" href="platform/css/content1.css" />
+  <link rel="stylesheet" href="platform/css/ui-grid.css" />
+  <link rel="stylesheet" href="platform/css/fun_tree.css" />
+  <link rel="stylesheet" href="platform/css/font-awesome.css" />
+  <link rel="stylesheet" href="platform/libs/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="platform/libs/select2/css/select2.css" />
+  <link rel="stylesheet" href="platform/css/ng-tags-input.min.css">
+  <link rel="stylesheet" href="platform/css/ng-tree-btn.css" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <link rel="stylesheet" href="platform/css/ngDialog.css">
+  <link rel="stylesheet" href="platform/css/ngDialog-theme-default.css">
+  <link rel="stylesheet" href="platform/css/ngNotificationsBar.css">
+  <link rel="stylesheet" href="platform/css/ngDialog-theme-plain.css">
+  <link rel="stylesheet" href="platform/css/ng-editor.css">
+  <link rel="stylesheet" href="platform/css/normalize.min.css">
+  <link rel="stylesheet" href="platform/css/mfb.css">
+  <link rel="stylesheet" type="text/css" href="platform/css/region.css" />
+  <link rel="stylesheet" type="text/css" href="platform/css/findSelect.css" />
+  <link rel="stylesheet" type="text/css" href="platform/css/fileUpload.css" />
+  <link rel="stylesheet" href="platform/libs/kindeditor/themes/default/default.css"/>
+  <link rel="stylesheet" type="text/css" href="platform/css/angucomplete-alt.css" />
+  <script charset="utf-8" src="platform/libs/kindeditor/kindeditor.js"></script>
+  <script charset="utf-8" src="platform/libs/kindeditor/lang/zh_CN.js"></script>
+  <script type="text/javascript" src="platform/libs/ueditor/ueditor.config.js"></script>
+  <script type="text/javascript" src="platform/libs/ueditor/ueditor.all.js"></script>
+  <script type="text/javascript" src="platform/libs/RichMarker_min.js"></script>
+  <script type="text/javascript" src="platform/libs/MarkerClusterer.js"></script>
+  <script type="text/javascript" src="platform/libs/TextIconOverlay.js"></script>
+  <script type="text/javascript" src="platform/libs/jquery/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="platform/libs/jquery/jquery-barcode.min.js"></script>
+  <script type="text/javascript" src="platform/libs/angular/console-sham.js"></script>
+  <script type="text/javascript" src="platform/libs/angular/angular.js"></script>
+  <script type="text/javascript" src="platform/libs/ocLazyLoad.min.js"></script>
+  <script type="text/javascript" src="platform/libs/angular/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="platform/libs/angular/angular-file-upload.min.js"></script>
+  <script type="text/javascript" src="platform/libs/echarts/echarts.min.js"></script>
+  <script type="text/javascript" src="platform/libs/ui-router/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="platform/libs/angular/ui-bootstrap-tpls.js"></script>
+  <script type="text/javascript" src="platform/libs/angular/angular-locale_zh-cn.js"></script>
+  <script type="text/javascript" src="platform/libs/angular/es5-shim.min.js"></script>
+  <script type="text/javascript" src="platform/libs/angular/es5-sham.min.js"></script>
+  <script type="text/javascript" src="platform/libs/base64.js"></script>
+  <script type="text/javascript" src="platform/libs/replay.js"></script>
+  <script type="text/javascript" src="platform/directives/baiduMap.js"></script>
+  <script type="text/javascript" src="platform/directives/custom-captcha.js"></script>
+  <script type="text/javascript" src="platform/directives/custom-xiala.js"></script>
+  <script type="text/javascript" src="platform/directives/lunbo.js"></script>
+  <script type="text/javascript" src="platform/directives/baiduEcharts.js"></script>
+  <script type="text/javascript" src="platform/libs/drawing_mgr.js"></script>
+  <script type="text/javascript" src="platform/libs/InfoBox_min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="platform/platform.js"></script>
+
+
+
+
+
+  <script type="text/javascript" src="recovery/recovery.js"></script>
+  <script type="text/javascript" src="platform/services/getPositionService.js"></script>
+  <script type="text/javascript" src="platform/directives/ng-range.js"></script>
+  <script type="text/javascript" src="platform/directives/side-menu.js"></script>
+  <script type="text/javascript" src="platform/directives/pwCheck.js"></script>
+  <script type="text/javascript" src="platform/directives/ng-editor.js"></script>
+  <script type="text/javascript" src="platform/directives/ng-select-custom.js"></script>
+  <script type="text/javascript" src="platform/directives/ng-tags-input.min.js"></script>
+  <script type="text/javascript" src="platform/directives/checklist-model.js"></script>
+  <script type="text/javascript" src="platform/directives/autocomplete-alt.js"></script>
+  <script type="text/javascript" src="platform/services/loginService.js"></script>
+  <script type="text/javascript" src="platform/services/cacheService.js"></script>
+  <script type="text/javascript" src="platform/services/mapMonitorService.js"></script>
+  <script type="text/javascript" src="platform/services/requestService.js"></script>
+  <script type="text/javascript" src="platform/services/larRequestService.js"></script>
+  <script type="text/javascript" src="platform/services/dicService.js"></script>
+  <script type="text/javascript" src="platform/services/pageService.js"></script>
+  <script type="text/javascript" src="platform/services/getPositionService.js"></script>
+  <script type="text/javascript" src="platform/services/planRouteService.js"></script>
+  <script type="text/javascript" src="platform/services/showRouteService.js"></script>
+  <script type="text/javascript" src="platform/services/showDetailService.js"></script>
+  <script type="text/javascript" src="platform/services/treeService.js"></script>
+  <script type="text/javascript" src="platform/directives/top-menu.js"></script>
+  <script type="text/javascript" src="platform/directives/angular-ueditor.js"></script>
+  <script type="text/javascript" src="platform/libs/angular/angular-touch.js"></script>
+  <script type="text/javascript" src="platform/libs/angular/angular-animate.js"></script>
+  <script type="text/javascript" src="platform/libs/angular/angular-cookies.min.js"></script>
+  <script type="text/javascript" src="platform/libs/angular/ng-file-upload-shim.min.js"></script>
+  <script type="text/javascript" src="platform/libs/angular/ng-file-upload.js"></script>
+  <script type="text/javascript" src="platform/libs/vfs_fonts.js"></script>
+  <script type="text/javascript" src="platform/libs/csv.js"></script>
+  <script type="text/javascript" src="platform/libs/docs.js"></script>
+  <script type="text/javascript" src="platform/libs/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="platform/libs/bootstrap/js/bootstrap-colorpicker-module.js"></script>
+  <script type="text/javascript" src="platform/libs/select2.min.js"></script>
+  <script type="text/javascript" src="platform/libs/select2/js/angular-sanitize.js"></script>
+  <script type="text/javascript" src="platform/libs/select2/js/select2.js"></script>
+  <script type="text/javascript" src="platform/libs/select2/js/select2.min.js"></script>
+  <script type="text/javascript" src="platform/libs/select2/js/underscore-min.js"></script>
+  <script type="text/javascript" src="platform/directives/abn_tree_directive.js"></script>
+  <script type="text/javascript" src="platform/directives/ngDialog.js"></script>
+  <script type="text/javascript" src="platform/directives/light-grid.js"></script>
+  <script type="text/javascript" src="platform/directives/modernizr.touch.js"></script>
+  <script type="text/javascript" src="platform/directives/ng-tree-selection.js"></script>
+  <script type="text/javascript" src="platform/directives/regionSelect.js"></script>
+  <script type="text/javascript" src="platform/directives/queryPanelSelect.js"></script>
+  <script type="text/javascript" src="platform/directives/fileUpload.js"></script>
+  <script type="text/javascript" src="platform/directives/datePicker.js"></script>
+  <script type="text/javascript" src="platform/directives/timePicker.js"></script>
+  <script type="text/javascript" src="platform/directives/ngDropdown.js"></script>
+  <script type="text/javascript" src="platform/directives/platformRegionSelect.js"></script>
+  <script type="text/javascript" src="platform/directives/angular-fusioncharts.js"></script>
+  <script type="text/javascript" src="platform/directives/ngNotificationsBar.js"></script>
+  <script type="text/javascript" src="platform/directives/ng-loading.js"></script>
+  <script type="text/javascript" src="platform/directives/keditor.js"></script>
+  <script type="text/javascript" src="platform/directives/emoji.js"></script>
+  <script type="text/javascript" src="platform/directives/TreeView.js"></script>
+  <script type="text/javascript" src="platform/filters/mapFilter.js"></script>
+  <script type="text/javascript" src="platform/filters/unitFilter.js"></script>
+  <script type="text/javascript" src="platform/filters/dicFilter.js"></script>
+
+  <script type="text/javascript" src="platform/filters/cutFilter.js"></script>
+  <script type="text/javascript" src="platform/filters/cutIndexFilter.js"></script>
+  <script type="text/javascript" src="platform/filters/decimalFilter.js"></script>
+  <script type="text/javascript" src="platform/directives/treeShrink.js"></script>
+  <script type="text/javascript" src="platform/directives/findSelect.js"></script>
+  <script type="text/javascript" src="platform/directives/drop-select.js"></script>
+</head>
+
+<body>
+<div class="noprint" ui-view style="height:100%;"></div>
+<div id="webprint" ></div>
+<notifications-bar class="notifications noprint"></notifications-bar>
+<div class="marquee noprint" >
+  <p class="mar_q" >您有封未读邮件!!!!!!</p>
+</div>
+<ng-loading class="noprint" ></ng-loading>
+</body>
+</html>

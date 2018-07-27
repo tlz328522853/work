@@ -1,0 +1,279 @@
+/* 
+   abn-tree.css
+
+   style for the angular-bootstrap-nav-tree
+   for both Bootstrap 2 and Bootstrap 3
+
+*/
+
+
+
+/* ------------------------------------------
+AngularJS Animations...
+
+The first selector is for Angular 1.1.5
+The second selector is for Angular 1.2.0
+
+*/
+.abn-tree-animate-enter,
+li.abn-tree-row.ng-enter {
+  transition: 200ms linear all;
+  position: relative;
+  display: block;
+  opacity: 0;
+  max-height:0px;
+}
+.abn-tree-animate-enter.abn-tree-animate-enter-active,
+li.abn-tree-row.ng-enter-active{
+  opacity: 1;
+  max-height:30px;
+}
+
+.abn-tree-animate-leave,
+li.abn-tree-row.ng-leave {
+  transition: 200ms linear all;
+  position: relative;
+  display: block;
+  height:30px;
+  max-height: 30px;
+  opacity: 1;
+}
+.abn-tree-animate-leave.abn-tree-animate-leave-active,
+li.abn-tree-row.ng-leave-active {  
+  height: 0px;
+  max-height:0px;
+  opacity: 0;
+}
+
+
+/* 
+------------------------------------------
+Angular 1.2.0 Animation 
+*/
+
+
+.abn-tree-animate.ng-enter{
+
+}
+.abn-tree-animate.ng-enter{
+
+}
+
+
+
+
+/*
+   end animation stuff
+-----------------------------------------
+   begin normal css stuff
+*/
+
+ul.abn-tree li.abn-tree-row {  
+  padding: 0px;
+  margin:0px;
+}
+
+ul.abn-tree li.abn-tree-row a {
+   padding: 0px 10px;
+  white-space: nowrap;
+  /* margin:5px 0px;  */
+}
+.indexright_cont_conlt .nav>li>a {padding:0px}
+ul.abn-tree i.indented {
+  padding: 2px 10px;
+}
+
+.abn-tree {
+  cursor: pointer;
+}
+ul.nav.abn-tree .level-1 .indented {
+  position: relative;
+  left: 0px;line-height: 25px;
+}
+ul.nav.abn-tree .level-2 .indented {
+  position: relative;
+  left: 20px;
+  line-height: 25px;
+}
+ul.nav.abn-tree .level-3 .indented {
+  position: relative;
+  left: 40px;
+  line-height: 25px;
+}
+ul.nav.abn-tree .level-4 .indented {
+  position: relative;
+  left: 60px;
+  line-height: 25px;
+}
+ul.nav.abn-tree .level-5 .indented {
+  position: relative;
+  left: 80px;
+  line-height: 25px;
+}
+ul.nav.abn-tree .level-6 .indented {
+  position: relative;
+  left: 100px;
+ line-height: 25px;
+}
+ul.nav.nav-list.abn-tree .level-7 .indented {
+  position: relative;
+  left: 120px;
+  line-height: 25px;
+}
+ul.nav.nav-list.abn-tree .level-8 .indented {
+  position: relative;
+  left: 140px;
+  line-height: 25px;
+}
+ul.nav.nav-list.abn-tree .level-9 .indented {
+  position: relative;
+  left: 160px;
+  line-height: 25px;
+}
+
+
+/*新树*/
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+tree-selection {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+tree-selection ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+tree-selection ul li {
+  padding: 0 0 0.14em 25px;
+  position: relative;
+}
+tree-selection ul li tree-level i {
+  color: #333333;
+  padding-right: 12px;
+}
+tree-selection ul li tree-level .cb-label {
+  margin-left: 5px;
+}
+tree-selection ul li tree-level .cb-wrapper {
+  width: 20px;
+  display: inline-block;
+}
+tree-selection ul li tree-level .cb-wrapper input[type='checkbox'] {
+  display: none;
+}
+tree-selection ul li tree-level .cb-wrapper input[type='checkbox'] + label {
+  cursor: pointer;
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  margin-right: 8px;
+  margin-top: 2px;
+  top: 0;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.4);
+  -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.4);
+  background: -webkit-linear-gradient(top, #ffffff 0%, #fafafa 100%);
+  background: -moz-linear-gradient(top, #ffffff 0%, #fafafa 100%);
+  background: -o-linear-gradient(top, #ffffff 0%, #fafafa 100%);
+  background: -ms-linear-gradient(top, #ffffff 0%, #fafafa 100%);
+  background: linear-gradient(top, #ffffff 0%, #fafafa 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222', endColorstr='#45484d', GradientType=0);
+}
+tree-selection ul li tree-level .cb-wrapper input[type='checkbox'] + label:after {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity: 0;
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 5px;
+  background: transparent;
+  top: 4px;
+  left: 3px;
+  border: 3px solid #333333;
+  border-top: none;
+  border-right: none;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+tree-selection ul li tree-level .cb-wrapper input[type='checkbox'] + label:hover::after {
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+  filter: alpha(opacity=20);
+  opacity: 0.2;
+}
+tree-selection ul li tree-level .cb-wrapper input[type='checkbox']:checked + label:after {
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+tree-selection ul li tree-level .cb-wrapper input[type='checkbox']:indeterminate + label:after {
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  filter: alpha(opacity=60);
+  opacity: 0.6;
+  width: 7px;
+  height: 3px;
+  background: #333333;
+  top: 6px;
+  left: 4px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+tree-selection ul li .tree-leaf {
+  margin-left: 26px;
+}
+
+
+/*公司、部门、人员图标*/
+/*公司*/
+.company_icon_plus{
+	width:14px;
+	height:20px;
+	background:url(../img/gongsi1.png) no-repeat;
+}
+.company_icon_minus{
+	width:14px;
+	height:20px;
+	background:url(../img/gongsi.png) no-repeat;
+}
+
+/*部门*/
+.depart_icon_plus{
+	width:14px;
+	height:20px;
+	background:url(../img/bumenok.png) no-repeat;
+}
+.depart_icon_minus{
+	width:14px;
+	height:20px;
+	background:url(../img/bumenok1.png) no-repeat;
+}
+
+/*人员*/
+.person_icon{
+	width:14px;
+	height:20px;
+	background:url(../img/renyuan.png) no-repeat;
+}
+.abn_treeSpan{
+	/* font-size:15px; */
+	width:150px;
+	padding: 0px 0px 1px 3px;border-radius: 4px;display: inline-block;
+}

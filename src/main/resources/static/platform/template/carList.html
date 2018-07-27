@@ -1,0 +1,128 @@
+<div ng-controller="carSelectController" class="modal fade" style="position: absolute; z-index: 50000;" 
+	id="carListModal" tabindex="-1" role="dialog"
+	aria-labelledby="carModalLabel">
+	<div class="modal-dialog" style="width: 72%; z-index: 9999;margin-top:27px"
+		role="document">
+		<div class="modal-content">
+			<div class="modal-header panel-primary"
+				style="height: 50px; border-bottom: solid 2px #ABAEFF;">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close" ng-click="resetQueryPanel()">
+					<span aria-hidden="true" style="color: #000; font-size: 35px;">&times;</span>
+				</button>
+				<h4 class="modal-title"
+					style="color: #FFFFFF; text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);float:left; font-weight: bold;"
+					id="carModalLabel">车辆选择</h4>
+				<p style="float:left;margin-left:10px">
+					<input type="text" ng-model="qryCar.carNumber" placeholder="车牌号" />
+					<input type="text" ng-model="qryCar.cardNumber" placeholder="通讯卡号" />
+					<ng-select-custom dic-id="dicId_carType" init-option="----车辆类型----" ng-model="qryCar.carType"/>			
+				</p>
+				
+				<button type="button" class="btn btn-primary" data-dismiss=""
+					ng-click="query()" style="margin-left:10px;float:left;margin-top: -5px;">查询</button>
+				<button type="button" class="btn btn-primary" data-dismiss="" style="margin-left:10px;float:left;margin-top: -5px;">
+					<span>选择：{{ choseRowData.carNumber }}</span>
+					<span ng-if="choseRowData == null">您所选择的车辆</span>
+				</button>	
+				
+			</div>
+			<div class="modal-body">
+				<div class="indexright_cont panel" style="margin:0;">
+					 <div class="dialog_tree" ng-show=" carTreeShow">
+						<div class="indexright_cont_conlx">
+							<input type="checkbox" checked="checked" ng-click="checkChgCar(branch)" ng-model="includeSub" />
+							<span>包含下级机构车辆</span>
+						</div>
+						<div class="indexright_cont_conlt"
+							style="height: 365px; overflow: auto;" ng-scrollbar>
+							<abn-tree tree-data="orgData" tree-control="orgTree"
+								on-select="orgSelected(branch)" expand-level="2"></abn-tree>
+						</div>
+					</div> 
+					
+					<div ng-if=" carTreeShow"  style="width: calc(100% - 200px);width: -webkit-calc(100% - 200px);float: left;">
+						<div style="height: 410px;">
+							<div class="borderbox">
+								<table lg-grid class="table table-striped"
+									model="dataProvider.getGridModel()">
+									<thead>
+										<tr>
+											<td></td>
+											<th>车牌号</th>
+											<th>类型</th>
+											<th>通讯卡号</th>
+											<th>部门</th>
+											<!-- <th>行驶里程</th>
+											<th>油耗</th> -->
+										</tr>
+									</thead>
+									<tbody>
+										<tr lg-row-start>
+											<td>
+												<input type="radio" name="row3" ng-click="choseCar(row)" ng-model="radioCtrl.assetId" value="{{ row.data.assetId }}"/>
+											</td>
+											<td>{{ row.data.carNumber }}</td>
+											<td>{{ row.data.carType  | dicFilter:'8684056427607197'}}</td>
+											<td>{{ row.data.cardNumber }}</td>
+											<td>{{ row.data.orgName }}</td>
+											<!-- <td>  </td>
+											<td> </td> -->
+										</tr>
+										<tr lg-row-end lg-expanded-row>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<service-pager data-provider="dataProvider"></service-pager>
+						</div>
+					</div>
+					<div ng-if="! carTreeShow" style="width: calc(100% );width: -webkit-calc(100% );float: left;">
+					<div style="height: 410px;">
+							<div class="borderbox">
+								<table lg-grid class="table table-striped"
+									model="dataProvider.getGridModel()">
+									<thead>
+										<tr>
+											<td></td>
+											<th>车牌号</th>
+											<th>类型</th>
+											<th>通讯卡号</th>
+											<th>部门</th>
+											<!-- <th>行驶里程</th>
+											<th>油耗</th> -->
+										</tr>
+									</thead>
+									<tbody>
+										<tr lg-row-start>
+											<td>
+												<input type="radio" name="row3" ng-click="choseCar(row)" ng-model="radioCtrl.assetId" value="{{ row.data.assetId }}"/>
+											</td>
+											<td>{{ row.data.carNumber }}</td>
+											<td>{{ row.data.carType  | dicFilter:'8684056427607197'}}</td>
+											<td>{{ row.data.cardNumber }}</td>
+											<td>{{ row.data.orgName }}</td>
+											<!-- <td>  </td>
+											<td> </td> -->
+										</tr>
+										<tr lg-row-end lg-expanded-row>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<service-pager data-provider="dataProvider"></service-pager>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer" style="border-top: solid 2px #ABAEFF; padding: 15px;">
+				<button type="button" class="btn btn-danger" data-dismiss="modal" style="float:right;">取消</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" 
+					ng-click="selectCar(choseRowData);choseCar();" style="float:right;margin-right:10px">确认</button>
+				
+				<button type="button" class="btn btn-primary"  style="margin-right:10px;float:right;" data-dismiss=""
+					ng-click="qryCar = {};">清空条件</button>	
+			</div>
+		</div>
+	</div>
+</div>

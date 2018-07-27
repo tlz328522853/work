@@ -1,0 +1,47 @@
+<div class="indexbox">
+	<div class="commonbox">
+		<div class="comm_left">
+			<div class="commom_img"> </div>
+			<!-- <img src="img/yun_logo.png" /> -->
+			
+		<!-- 	<img class="commom_img1" src="{{com.fileUrl}}" ng-if="com.fileUrl != null"/>
+			<div   class="commom_img" ng-if="com.fileUrl == null"> </div> -->
+			
+		</div>
+		<top-menu menu-data="menuData"/>
+	</div>
+	<div class="indexcont">
+		<div class="indexleft">
+			<div class="indexleft_top">
+					<div class="indextop">
+						<img src="img/jiao.png" class="indextop_jiao"/>
+						<img src="img/guanliyuan.png" class="indextop_img"/>
+					<!-- 	<img src="{{com.fileUrl}}"/> -->
+						<p class="user_top" >{{user.name}}</p>
+						<a class="index_user" title="{{user.roleType}}">{{user.roleType}}</a>
+						<a class="index_gs" title="{{user.orgName}}">{{user.orgName}}</a>
+					</div>
+					<div class="indexbot">
+						<ul>
+							<li><a href="javascript:void(0)" ng-click="loginout(user.name,user.token)">
+								<p class="logout"><span >注销</span></p>
+							</a></li>
+							<li><a ui-sref="home.sideMenu.upgrade">
+								<img src="img/yh_pic_bz.png" />
+							</a></li>
+							<li><a href="javascript:void(0)">
+								<img src="img/yh_pic_sz.png" />
+							</a></li>
+							<li><a ui-sref="home.sideMenu.mail" style="position:relative;">
+								<img src="img/yh_pic_email.png" />
+								<p ng-if="user.emailCount>0" id="emailCount">{{user.emailCount}}</p>
+							</a></li>
+						</ul>
+					</div>	
+			</div>			
+		</div>
+		<div ui-view  class="index_table"></div>		
+	</div>
+	<div class="indexbottom"></div>
+</div>
+
